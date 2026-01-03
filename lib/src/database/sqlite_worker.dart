@@ -222,6 +222,7 @@ class SqliteWorker {
     bool checkNoTail = false,
   }) async {
     _notClosedGuard();
+    return await _mutex.protectRead(() async {
     final completer = Completer<Object>.sync();
     final id = _idCounter++;
     _pendingRequests[id] = completer;
@@ -232,6 +233,7 @@ class SqliteWorker {
     return WorkerStatement._(stmntId, (message) async {
       return await _mutex.protectRead(() async {
         return await _rawCommand(message);
+        });
       });
     });
   }

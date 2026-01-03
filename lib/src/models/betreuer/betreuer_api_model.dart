@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../sex.dart';
 import '../uuid.dart';
 
 part 'betreuer_api_model.freezed.dart';
@@ -9,6 +10,6 @@ abstract class BetreuerApiModel with _$BetreuerApiModel {
   const factory BetreuerApiModel({
     required UUID id,
     required String name,
-    required int sex,
+    required Sex sex,
   }) = _BetreuerApiModel;
 }

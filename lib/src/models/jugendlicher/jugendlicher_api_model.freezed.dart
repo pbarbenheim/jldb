@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$JugendlicherApiModel {
 
- UUID get id; String get name; int get sex; String? get pass; DateTime get birthDate; DateTime get memberSince; DateTime? get exitDate; int? get exitReason; UUID? get replacedById;
+ UUID get id; String get name; Sex get sex; String? get pass; DateTime get birthDate; DateTime get memberSince; DateTime? get exitDate; int? get exitReason; UUID? get replacedById;
 /// Create a copy of JugendlicherApiModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $JugendlicherApiModelCopyWith<$Res>  {
   factory $JugendlicherApiModelCopyWith(JugendlicherApiModel value, $Res Function(JugendlicherApiModel) _then) = _$JugendlicherApiModelCopyWithImpl;
 @useResult
 $Res call({
- UUID id, String name, int sex, String? pass, DateTime birthDate, DateTime memberSince, DateTime? exitDate, int? exitReason, UUID? replacedById
+ UUID id, String name, Sex sex, String? pass, DateTime birthDate, DateTime memberSince, DateTime? exitDate, int? exitReason, UUID? replacedById
 });
 
 
@@ -67,7 +67,7 @@ class _$JugendlicherApiModelCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as UUID,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,sex: null == sex ? _self.sex : sex // ignore: cast_nullable_to_non_nullable
-as int,pass: freezed == pass ? _self.pass : pass // ignore: cast_nullable_to_non_nullable
+as Sex,pass: freezed == pass ? _self.pass : pass // ignore: cast_nullable_to_non_nullable
 as String?,birthDate: null == birthDate ? _self.birthDate : birthDate // ignore: cast_nullable_to_non_nullable
 as DateTime,memberSince: null == memberSince ? _self.memberSince : memberSince // ignore: cast_nullable_to_non_nullable
 as DateTime,exitDate: freezed == exitDate ? _self.exitDate : exitDate // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( UUID id,  String name,  int sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( UUID id,  String name,  Sex sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JugendlicherApiModel() when $default != null:
 return $default(_that.id,_that.name,_that.sex,_that.pass,_that.birthDate,_that.memberSince,_that.exitDate,_that.exitReason,_that.replacedById);case _:
@@ -179,7 +179,7 @@ return $default(_that.id,_that.name,_that.sex,_that.pass,_that.birthDate,_that.m
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( UUID id,  String name,  int sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( UUID id,  String name,  Sex sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)  $default,) {final _that = this;
 switch (_that) {
 case _JugendlicherApiModel():
 return $default(_that.id,_that.name,_that.sex,_that.pass,_that.birthDate,_that.memberSince,_that.exitDate,_that.exitReason,_that.replacedById);case _:
@@ -199,7 +199,7 @@ return $default(_that.id,_that.name,_that.sex,_that.pass,_that.birthDate,_that.m
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( UUID id,  String name,  int sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( UUID id,  String name,  Sex sex,  String? pass,  DateTime birthDate,  DateTime memberSince,  DateTime? exitDate,  int? exitReason,  UUID? replacedById)?  $default,) {final _that = this;
 switch (_that) {
 case _JugendlicherApiModel() when $default != null:
 return $default(_that.id,_that.name,_that.sex,_that.pass,_that.birthDate,_that.memberSince,_that.exitDate,_that.exitReason,_that.replacedById);case _:
@@ -219,7 +219,7 @@ class _JugendlicherApiModel extends JugendlicherApiModel {
 
 @override final  UUID id;
 @override final  String name;
-@override final  int sex;
+@override final  Sex sex;
 @override final  String? pass;
 @override final  DateTime birthDate;
 @override final  DateTime memberSince;
@@ -257,7 +257,7 @@ abstract mixin class _$JugendlicherApiModelCopyWith<$Res> implements $Jugendlich
   factory _$JugendlicherApiModelCopyWith(_JugendlicherApiModel value, $Res Function(_JugendlicherApiModel) _then) = __$JugendlicherApiModelCopyWithImpl;
 @override @useResult
 $Res call({
- UUID id, String name, int sex, String? pass, DateTime birthDate, DateTime memberSince, DateTime? exitDate, int? exitReason, UUID? replacedById
+ UUID id, String name, Sex sex, String? pass, DateTime birthDate, DateTime memberSince, DateTime? exitDate, int? exitReason, UUID? replacedById
 });
 
 
@@ -279,7 +279,7 @@ class __$JugendlicherApiModelCopyWithImpl<$Res>
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as UUID,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,sex: null == sex ? _self.sex : sex // ignore: cast_nullable_to_non_nullable
-as int,pass: freezed == pass ? _self.pass : pass // ignore: cast_nullable_to_non_nullable
+as Sex,pass: freezed == pass ? _self.pass : pass // ignore: cast_nullable_to_non_nullable
 as String?,birthDate: null == birthDate ? _self.birthDate : birthDate // ignore: cast_nullable_to_non_nullable
 as DateTime,memberSince: null == memberSince ? _self.memberSince : memberSince // ignore: cast_nullable_to_non_nullable
 as DateTime,exitDate: freezed == exitDate ? _self.exitDate : exitDate // ignore: cast_nullable_to_non_nullable

@@ -224,16 +224,16 @@ class SqliteWorker {
   }) async {
     _notClosedGuard();
     return await _mutex.protectRead(() async {
-    final completer = Completer<Object>.sync();
-    final id = _idCounter++;
-    _pendingRequests[id] = completer;
+      final completer = Completer<Object>.sync();
+      final id = _idCounter++;
+      _pendingRequests[id] = completer;
 
-    _commands.send((id, 'prepare', (sql, peristent, vtab, checkNoTail)));
+      _commands.send((id, 'prepare', (sql, peristent, vtab, checkNoTail)));
 
-    final int stmntId = await completer.future as int;
-    return WorkerStatement._(stmntId, (message) async {
-      return await _mutex.protectRead(() async {
-        return await _rawCommand(message);
+      final int stmntId = await completer.future as int;
+      return WorkerStatement._(stmntId, (message) async {
+        return await _mutex.protectRead(() async {
+          return await _rawCommand(message);
         });
       });
     });

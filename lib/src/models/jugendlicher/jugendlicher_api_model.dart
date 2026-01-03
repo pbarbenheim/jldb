@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../sex.dart';
 import '../uuid.dart';
 
 part 'jugendlicher_api_model.freezed.dart';
@@ -9,7 +10,7 @@ abstract class JugendlicherApiModel with _$JugendlicherApiModel {
   const factory JugendlicherApiModel({
     required UUID id,
     required String name,
-    required int sex,
+    required Sex sex,
     String? pass,
     required DateTime birthDate,
     required DateTime memberSince,

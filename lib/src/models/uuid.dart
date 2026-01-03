@@ -19,16 +19,16 @@ class UUID {
           _value == other._value;
   @override
   int get hashCode => _value.hashCode;
+}
 
-  factory UUID.fromString(String value) {
-    UuidValidation.isValidOrThrow(fromString: value);
-    return UUID._(value);
-  }
+UUID uuidFromString(String value) {
+  UuidValidation.isValidOrThrow(fromString: value);
+  return UUID._(value);
 }
 
 extension UUIDExtension on String {
   UUID toUUID() {
-    return UUID.fromString(this);
+    return uuidFromString(this);
   }
 }
 

@@ -50,13 +50,14 @@ class SqliteWorker {
     return SqliteWorker._(commands, responses, isolate);
   }
 
-  void close() {
+  Future<void> close() async {
     if (!_closed) {
       _closed = true;
       _commands.send('shutdown');
       if (_pendingRequests.isEmpty) {
         _responses.close();
       }
+      Future.delayed(const Duration(seconds: 1));
       _isolate.kill(priority: Isolate.beforeNextEvent);
     }
   }

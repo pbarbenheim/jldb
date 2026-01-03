@@ -3,6 +3,13 @@
 /// More dartdocs go here.
 library;
 
-export 'src/jldb_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/jldb.dart' show Jldb, jldbCompatibleSinceVersion;
+export 'src/models/models.dart'
+    hide
+        eintragApiModelFromDbArray,
+        eintragStatusAnwesend,
+        eintragStatusEntschuldigt,
+        uuidFromString,
+        UUIDExtension;
+export 'src/types/result.dart' hide AsyncResultDart, ResultDart;
+export 'src/types/optional.dart' show None, Some, Optional, OptionalExtension;

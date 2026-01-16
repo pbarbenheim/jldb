@@ -6,6 +6,8 @@ sealed class Optional<T extends Object> {
   T unwrap();
   T? unsafe();
 
+  Optional<W> map<W extends Object>(W Function(T value) transform);
+
   W fold<W>({
     required W Function(T value) onSome,
     required W Function() onNone,
@@ -34,6 +36,11 @@ final class Some<T extends Object> implements Optional<T> {
   T? unsafe() => _value;
 
   @override
+  Optional<W> map<W extends Object>(W Function(T value) transform) {
+    return transform(_value).toOptional();
+  }
+
+  @override
   W fold<W>({
     required W Function(T value) onSome,
     required W Function() onNone,
@@ -59,6 +66,11 @@ final class None<T extends Object> implements Optional<T> {
 
   @override
   T? unsafe() => null;
+
+  @override
+  Optional<W> map<W extends Object>(W Function(T value) transform) {
+    return None<W>();
+  }
 
   @override
   W fold<W>({

@@ -12,3 +12,4 @@ export 'src/models/models.dart'
         UUIDExtension;
 export 'src/types/result.dart' hide AsyncResultDart, ResultDart;
 export 'src/types/optional.dart' show None, Some, Optional, OptionalExtension;
+export 'src/types/result_optional.dart' show ResultOptionalMethods;

@@ -8,6 +8,12 @@ class UUID {
   factory UUID.generate() {
     return UUID._(_uuidv4.generate());
   }
+
+  factory UUID.fromString(String value) {
+    UuidValidation.isValidOrThrow(fromString: value);
+    return UUID._(value);
+  }
+
   @override
   String toString() => _value;
 
@@ -21,14 +27,9 @@ class UUID {
   int get hashCode => _value.hashCode;
 }
 
-UUID uuidFromString(String value) {
-  UuidValidation.isValidOrThrow(fromString: value);
-  return UUID._(value);
-}
-
 extension UUIDExtension on String {
   UUID toUUID() {
-    return uuidFromString(this);
+    return UUID.fromString(this);
   }
 }
 

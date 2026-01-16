@@ -9,7 +9,6 @@ export 'src/models/models.dart'
         eintragApiModelFromDbArray,
         eintragStatusAnwesend,
         eintragStatusEntschuldigt,
-        uuidFromString,
         UUIDExtension;
 export 'src/types/result.dart' hide AsyncResultDart, ResultDart;
 export 'src/types/optional.dart' show None, Some, Optional, OptionalExtension;

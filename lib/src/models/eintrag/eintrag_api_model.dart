@@ -13,8 +13,8 @@ abstract class EintragApiModel with _$EintragApiModel {
     required UUID id,
     required DateTime start,
     required DateTime end,
-    required int kategorieId,
-    String? thema,
+    required UUID kategorieId,
+    required String thema,
     String? ort,
     String? raum,
     String? dienstverlauf,
@@ -38,6 +38,7 @@ EintragApiModel eintragApiModelFromDbArray(
     columns.contains('status_jugendlicher_ids'),
     'Column "status_jugendlicher_ids" is required',
   );
+  assert(columns.contains('thema'), 'Column "thema" is required');
 
   final idIndex = columns.indexOf('id');
   final startIndex = columns.indexOf('start');
@@ -78,8 +79,8 @@ EintragApiModel eintragApiModelFromDbArray(
     id: data[idIndex].toString().toUUID(),
     start: DateTime.fromMillisecondsSinceEpoch(data[startIndex] as int),
     end: DateTime.fromMillisecondsSinceEpoch(data[endIndex] as int),
-    kategorieId: int.parse(data[kategorieIdIndex] as String),
-    thema: themaIndex != -1 ? data[themaIndex] as String? : null,
+    kategorieId: data[kategorieIdIndex].toString().toUUID(),
+    thema: data[themaIndex] as String,
     ort: ortIndex != -1 ? data[ortIndex] as String? : null,
     raum: raumIndex != -1 ? data[raumIndex] as String? : null,
     dienstverlauf: dienstverlaufIndex != -1

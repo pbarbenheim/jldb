@@ -48,7 +48,7 @@ class DatabaseMigrations {
       start bigint not null,
       end bigint not null,
       kategorie_id text not null references kategorien (id),
-      thema text,
+      thema text not null,
       ort text,
       raum text,
       dienstverlauf text,
